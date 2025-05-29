@@ -4,7 +4,8 @@ import React from 'react'
 
 const Bundesliga = async () => {
   
-    const getBundesliga = await filterleague('Bundesliga')
+    const apiResult = await filterleague('Bundesliga')
+    const getBundesliga = Array.isArray(apiResult) ? apiResult : [];
   
     return (
     <div className='w-[600px]'>

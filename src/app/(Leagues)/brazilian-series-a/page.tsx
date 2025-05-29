@@ -2,7 +2,8 @@ import { filterleague } from '@/api'
 import LeagueTable from '@/app/components/LeagueTable'
 
 const Brasileiro = async () => {
-  const getBrasileiro = await filterleague('Campeonato Brasileiro Série A')
+  const apiResult = await filterleague('Campeonato Brasileiro Série A')
+  const getBrasileiro = Array.isArray(apiResult) ? apiResult : [];
   return (
     <div className='w-[600px]'>
       {getBrasileiro.length === 0 ? (

@@ -4,7 +4,8 @@ import React from 'react'
 
 const LaLiga = async () => {
   
-    const getLaLiga = await filterleague('Primera Division')
+    const apiResult = await filterleague('Primera Division')
+    const getLaLiga = Array.isArray(apiResult) ? apiResult : [];
   
     return (
     <div className='w-[600px]'>

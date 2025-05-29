@@ -3,7 +3,8 @@ import LeagueTable from '@/app/components/LeagueTable'
 import React from 'react'
 
 const Championship = async () => {
-    const getChampionship = await filterleague('Championship')
+    const apiResult = await filterleague('Championship')
+    const getChampionship = Array.isArray(apiResult) ? apiResult : [];
     return (
     <div className='w-[600px]'>
         {getChampionship.length === 0 ? (

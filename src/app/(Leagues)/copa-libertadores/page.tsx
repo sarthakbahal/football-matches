@@ -3,9 +3,8 @@ import LeagueTable from '@/app/components/LeagueTable'
 import React from 'react'
 
 const CopaLibertadores = async () => {
-  
-    const getCopaLibertadores = await filterleague('Copa Libertadores')
-  
+    const apiResult = await filterleague('Copa Libertadores')
+    const getCopaLibertadores = Array.isArray(apiResult) ? apiResult : [];
     return (
     <div className='w-[600px]'>
         {getCopaLibertadores.length === 0 ? (
