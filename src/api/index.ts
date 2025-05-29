@@ -9,7 +9,13 @@ const option:apiOptions = {
 }
 
 export const getMatches = async () => {
-    const res = await fetch(`https://api.football-data.org/v4/matches`,option)
+    const today = new Date();
+    const year = today.getUTCFullYear();
+    const month = String(today.getUTCMonth() + 1).padStart(2, '0');
+    const day = String(today.getUTCDate()).padStart(2, '0');
+    const todayStr = [year, month, day].join('-');
+    
+    const res = await fetch(`https://api.football-data.org/v4/matches?date=${todayStr}`, option)
     return res.json()
 }
 

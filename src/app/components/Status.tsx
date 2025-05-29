@@ -28,22 +28,31 @@ const Status = ({matcheslist, matcheslistfinished}:{matcheslist:matchestype[], m
                 ) : null}
 
                 {statusMatch === "FINISHED" ? (
-                        matcheslist.map((data) => (
-                            <div key={data.id}>
+                    <>
+                        {matcheslist.filter(data => data.status === "FINISHED").length === 0 &&
+                         matcheslistfinished.filter(data => data.status === "FINISHED").length === 0 ? (
+                          <div className="text-center text-gray-300 py-4">
+                            No finished matches for today
+                          </div>
+                        ) : (
+                          <>
+                            {matcheslist.map((data) => (
+                              <div key={data.id}>
                                 {data.status === "FINISHED" && (
-                                    <LeagueTable data={data}/>
-                                    
+                                  <LeagueTable data={data}/>
                                 )}
-                            </div>
-                        ))
-                ) : null}
-
-                {statusMatch === "FINISHED" ? (
-                        matcheslistfinished.map((data) => (
-                            <div key={data.id}>
-                                
-                            </div>
-                        ))
+                              </div>
+                            ))}
+                            {matcheslistfinished.map((data) => (
+                              <div key={data.id}>
+                                {data.status === "FINISHED" && (
+                                  <LeagueTable data={data}/>
+                                )}
+                              </div>
+                            ))}
+                          </>
+                        )}
+                    </>
                 ) : null}
 
             </div>

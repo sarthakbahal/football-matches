@@ -6,6 +6,7 @@ export default async function Home() {
 
   const getdata = await getMatches()
   const getdatafinished = await getMatchesover()
+  console.log("Finished matches API response:", getdatafinished)
 
   const matchesdata = getdata?.matches
   const matchesdatafinished = getdatafinished?.matches
