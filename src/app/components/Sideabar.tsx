@@ -16,9 +16,9 @@ const Sideabar:FC = () => {
     ]
  
     return (
-        <section className="px-2 md:px-4 py-2 bg-[rgb(40,46,58)] rounded-md">
+        <section className="px-2 md:px-4 py-2 bg-gradient-to-br from-[#3a0073] via-[#1a0033] to-[#0f051d] rounded-xl border-2 border-[#a259ff] shadow-lg">
             <div>
-                <h1 className="text-xl font-bold mb-4 text-gray-600">Leagues Monitored</h1>
+                <h1 className="text-xl font-extrabold mb-4 text-[#e0aaff] drop-shadow-[0_2px_4px_#a259ff] tracking-wide uppercase">Leagues Monitored</h1>
                 <ul className="space-y-2">
                     {
                         Leagues.map((league)=>(

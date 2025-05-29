@@ -1,0 +1,18 @@
+import { filterleague } from '@/api'
+import LeagueTable from '@/app/components/LeagueTable'
+import React from 'react'
+
+const Ligue1 = async () => {
+    const getLigue1 = await filterleague('Ligue 1')
+    return (
+    <div className='w-[600px]'>
+        {getLigue1.map((data) => (
+            <div key={data.id}>
+                <LeagueTable data={data}/>
+            </div>
+        ))}
+    </div>
+  )
+}
+
+export default Ligue1 

@@ -1,6 +1,6 @@
 import { apiOptions, matchestype } from "@/types";
 
-const option:apiOptions = {
+const options:apiOptions = {
     next : {revalidate: 30},
     headers : {
         "X-Auth-Token" : process.env.API_TOKEN,
@@ -10,12 +10,12 @@ const option:apiOptions = {
 
 export const getMatches = async () => {
     const today = new Date();
-    const year = today.getUTCFullYear();
-    const month = String(today.getUTCMonth() + 1).padStart(2, '0');
-    const day = String(today.getUTCDate()).padStart(2, '0');
+    const year = today.getFullYear();
+    const month = String(today.getMonth() + 1).padStart(2, '0');
+    const day = String(today.getDate()).padStart(2, '0');
     const todayStr = [year, month, day].join('-');
     
-    const res = await fetch(`https://api.football-data.org/v4/matches?date=${todayStr}`, option)
+    const res = await fetch(`https://api.football-data.org/v4/matches?date=${todayStr}`, options)
     return res.json()
 }
 
@@ -29,7 +29,7 @@ const day = String(getdatemonth.getDate()).padStart(2, '0')
 const yesterday = [year,month,day].join('-')
 
 export const getMatchesover = async () => {
-    const res = await fetch(`https://api.football-data.org/v4/matches?date=${yesterday}`)
+    const res = await fetch(`https://api.football-data.org/v4/matches?date=${yesterday}`, options)
     return res.json()
 }
 
