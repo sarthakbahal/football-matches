@@ -20,7 +20,7 @@ const Status = ({matcheslist, matcheslistfinished}:{matcheslist:matchestype[], m
                         matcheslist.map((data) => (
                             <div key={data.id}>
                                 {data.status === "TIMED" && (
-                                    <LeagueTable/>
+                                    <LeagueTable data={data}/>
                                     
                                 )}
                             </div>
@@ -31,7 +31,7 @@ const Status = ({matcheslist, matcheslistfinished}:{matcheslist:matchestype[], m
                         matcheslist.map((data) => (
                             <div key={data.id}>
                                 {data.status === "FINISHED" && (
-                                    <LeagueTable/>
+                                    <LeagueTable data={data}/>
                                     
                                 )}
                             </div>
