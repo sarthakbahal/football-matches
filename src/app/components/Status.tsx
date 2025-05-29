@@ -10,9 +10,27 @@ const Status = ({matcheslist, matcheslistfinished}:{matcheslist:matchestype[], m
    
     return (
         <div>
-            <div className="flex space-x-4 mb-2 md:mb-4">
-                <button onClick={() => setStatusMatch("TODAY")} className={`px-2 py-1 text-primary text-xs md:text-sm rounded-md ${statusMatch === "TODAY" ? "bg-red-400 font-semibold text-white" : "bg-blue-400 font-regular text-primary"}`}>Today</button>
-                <button onClick={() => setStatusMatch("FINISHED")} className={`px-2 py-1 text-primary text-xs md:text-sm rounded-md ${statusMatch === "FINISHED" ? "bg-red-400 font-semibold text-white" : "bg-blue-400 font-regular text-primary"}`}>Finished</button>
+            <div className="flex justify-center space-x-6 mb-4 mt-2">
+                <button
+                    onClick={() => setStatusMatch("TODAY")}
+                    className={`px-6 py-2 rounded-lg text-md font-bold transition-all duration-200 border-2 shadow-lg tracking-wide
+                        ${statusMatch === "TODAY"
+                            ? "bg-gradient-to-r from-[#a259ff] via-[#7f00ff] to-[#0f051d] border-[#ff61e6] text-[#fff] drop-shadow-[0_2px_8px_#a259ff] scale-105"
+                            : "bg-gradient-to-r from-[#232046] via-[#1a0033] to-[#0f051d] border-[#a259ff] text-[#e0aaff] hover:scale-105 hover:border-[#ff61e6]"}
+                    `}
+                >
+                    Today
+                </button>
+                <button
+                    onClick={() => setStatusMatch("FINISHED")}
+                    className={`px-6 py-2 rounded-lg text-md font-bold transition-all duration-200 border-2 shadow-lg tracking-wide
+                        ${statusMatch === "FINISHED"
+                            ? "bg-gradient-to-r from-[#a259ff] via-[#7f00ff] to-[#0f051d] border-[#ff61e6] text-[#fff] drop-shadow-[0_2px_8px_#a259ff] scale-105"
+                            : "bg-gradient-to-r from-[#232046] via-[#1a0033] to-[#0f051d] border-[#a259ff] text-[#e0aaff] hover:scale-105 hover:border-[#ff61e6]"}
+                    `}
+                >
+                    Finished
+                </button>
             </div>
 
             <div className="w-full">
